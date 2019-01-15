@@ -1,0 +1,4 @@
+// Base URL without trailing slash
+$cdn-base-url: 'https://some.cdn.com';
+$static-images-url: $cdn-base-url + '/images/';
+$static-fonts-url: $cdn-base-url + '/fonts/';

@@ -1,0 +1,7 @@
+node_modules
+*.log
+_build_dev
+_build_prod
+.vscode
+.idea
+.DS_Store

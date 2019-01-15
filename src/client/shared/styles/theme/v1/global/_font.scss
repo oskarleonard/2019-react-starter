@@ -1,0 +1,46 @@
+$body-font: 'Lato', Arial, sans-serif;
+$fallback-font: Arial, sans-serif;
+$font-size-base: 100%; // 16px
+
+$weight-light: 300;
+$weight-normal: 500;
+$weight-semibold: 700;
+$weight-bold: 900;
+
+$font-weight-normal: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+
+// Headings
+$font-size-heading-xs: 1rem; // 16px
+$font-size-heading-sm: 1.25rem; // 20px
+$font-size-heading-md: 1.5rem; // 24px
+$font-size-heading-lg: 2.25rem; // 36px
+$font-size-heading-xl: 2.875rem; // 46px
+
+// Paragraphs
+$font-size-text-xs: 0.625rem; // 10px
+$font-size-text-sm: 0.75rem; // 12px
+$font-size-text-md: 0.875rem; // 14px
+$font-size-text-lg: 1rem; // 16px
+$font-size-text-xl: 1.1rem; // 17.6px
+
+// Labels
+$font-size-label: 0.75rem; // 16px
+$font-size-label-header-md: 1.125rem; // 18px
+
+// Buttons
+$font-size-button-md: 0.75rem; // 12px
+$font-size-button-lg: 0.875rem; // 14px
+
+@function fontSize($size) {
+  @return ($size/16) + rem;
+}
+
+@function lineHeight($fontSize, $xSize) {
+  @return ($fontSize*$xSize);
+}
+
+@function xResizer($size, $x) {
+  @return ($size*$x);
+}

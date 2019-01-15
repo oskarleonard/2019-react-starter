@@ -1,0 +1,20 @@
+@mixin _input-focus($border-color) {
+  &:focus {
+    outline: none;
+    border-color: $border-color;
+  }
+}
+
+.inputPrimary {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-family: $body-font;
+  color: $color-text-primary;
+  background-color: $color-input-bg-primary;
+  background-clip: padding-box;
+  border: 1px solid $color-border-primary;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  @include _input-focus($color-border-focus-primary);
+}

@@ -1,0 +1,12 @@
+{
+  "rules": {
+  "indentation": [ 2, {
+    "message": "Please use 2 spaces for indentation.",
+    "severity": "warning"
+  } ],
+  "rule-empty-line-before": [ "always", {
+    "except": ["first-nested"],
+    "ignore": ["after-comment"]
+  } ],
+  }
+}

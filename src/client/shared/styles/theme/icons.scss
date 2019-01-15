@@ -1,0 +1,87 @@
+i, span {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Font Awesome 5 Free' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 1rem;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconHamburger:before {
+  content: "\f0c9";
+}
+
+.iconHome:before {
+  content: "\f015";
+}
+
+.iconDollarSign:before {
+  content: "\f155";
+}
+
+.iconMapMarkerAlt:before {
+  content: "\f3c5";
+}
+
+.iconCoffee:before {
+  content: "\f0f4";
+}
+
+.iconImages:before {
+  content: "\f302";
+}
+
+.iconUsers:before {
+  content: "\f0c0";
+}
+
+.iconCalendarAlt:before {
+  content: "\f073";
+}
+
+.iconGift:before {
+  content: "\f06b";
+}
+
+.iconCreditCard:before {
+  content: "\f09d";
+}
+
+.iconTicketAlt:before {
+  content: "\f3ff";
+}
+
+.iconDesktop:before {
+  content: "\f108";
+}
+
+.iconQuestionCircle:before {
+  content: "\f059";
+}
+
+.iconComments:before {
+  content: "\f086";
+}
+
+.ellipsisH:before {
+  content: "\f141";
+}
+
+.iconChartBar:before {
+  content: "\f080";
+}
+
+.userCircle:before {
+  content: "\f2bd";
+}
+
+.iconWifi:before {
+  content: "\f1eb";
+}

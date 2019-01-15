@@ -1,0 +1,47 @@
+cache:
+  paths:
+  - node_modules/
+
+stages:
+  - install_dependencies_and_build
+  - test
+  - deploy
+
+install dependencies and build:
+  stage: install_dependencies_and_build
+  script:
+    - npm ci --loglevel error
+    - npm run buildscript
+    - test -e _build_prod/server/render.js
+  artifacts:
+    paths:
+      - node_modules/
+      - _build_prod/
+      - /root/.npm/_logs/*.log
+    expire_in: 1 month
+
+test:
+  stage: test
+  only:
+    - develop
+    - master
+  dependencies:
+    - install dependencies and build
+  script:
+    - echo run tests in this section
+
+step-deploy-prod:
+  image: docker
+  services:
+    - docker:dind
+  stage: deploy
+  only:
+    - master
+  dependencies:
+    - install dependencies and build
+  script:
+    - docker image prune -f
+    - docker-compose build --no-cache
+    - docker-compose up -d
+  allow_failure: false
+  when: manual

@@ -1,0 +1,41 @@
+.slideDown {
+  transition-duration: 0.2s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+  transform: translateX(0%);
+}
+
+.transitionToWhiteBackground {
+  transition-duration: 0.4s;
+  transition-property: background-color;
+  transition-timing-function: linear;
+  background-color: white;
+}
+
+@mixin transitionSwipeRight($txtColor: initial) {
+  color: $txtColor;
+  &:before {
+    transform: translate(0, 0);
+  }
+}
+
+@mixin transitionInitSwipeRight($swipe-color: $color-bg-primary) {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transform: perspective(1rem);
+  transition: color 0.3s ease-in;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: $swipe-color;
+    transform: translate(-100%, 0);
+    transition: transform 0.3s ease-out;
+  }
+}

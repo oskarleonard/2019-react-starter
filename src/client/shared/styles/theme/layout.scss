@@ -1,0 +1,42 @@
+.contentContainer {
+  @include bpTablet() {
+    padding: 0;
+    max-width: $max-content-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.paragraphLineContainer {
+  padding: 0 $mobile-padding-width 0 $mobile-padding-width;
+
+  @include bpTablet(){
+    padding: 0;
+    max-width: $max-paragraph-line-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.marginTopSm {
+  margin-top: $element-spacing-sm;
+}
+
+.marginTopMd {
+  margin-top: $element-spacing-md;
+}
+
+.marginTop {
+  margin-top: $element-spacing;
+}
+
+.marginTopAndLeft {
+  margin-top: $element-spacing;
+  margin-left: $element-spacing;
+}
+
+.hideOnMobile {
+  @include onlyMobile() {
+    display: none !important;
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "moduleFileExtensions": [
+    "js"
+  ],
+  "roots": ["src"],
+  "modulePaths": ["src/client"],
+  "collectCoverageFrom" : [
+    "src/**/*.js"
+  ],
+  "moduleDirectories": ["node_modules"],
+  "moduleNameMapper": {
+    "\\.scss$": "<rootDir>/src/client/__mocks__/styleMock.js",
+    "\\.scss$": "identity-obj-proxy"
+  },
+  "snapshotSerializers": ["enzyme-to-json/serializer"],
+  "setupFiles": [
+    "./scripts/shim.js",
+    "./test-setup.js"
+  ]
+}

@@ -1,0 +1,60 @@
+// = Color variables
+// -----------------------------
+$color-primary: #36a3f7;
+$color-primary-disabled: #DCDCDC;
+$color-transparent: transparent;
+$color-transparent-darker: rgba(34, 157, 255, 0.03);
+$color-primary-lighten-1: lighten($color-primary, 5%);
+$color-secondary: #FFFFFF;
+$color-black: #000000;
+
+// Backgrounds
+$color-bg-primary: $color-primary;
+$color-bg-primary-darken-1: darken($color-bg-primary, 20%);
+$color-bg-primary-darken-2: darken($color-bg-primary, 30%);
+$color-bg-primary-gradient: linear-gradient(-45deg, #{$color-bg-primary-darken-2}, #{$color-bg-primary});
+$color-bg-primary-gradient-dark: linear-gradient(to top, #3a3b3c, #4e5052);
+$color-bg-primary-dark: #151f2a;
+$color-bg-secondary-dark: #101820;
+$color-bg-element-base: #ebebeb;
+$color-bg-transparent: transparent;
+
+// Overlay
+$color-overlay: rgba(0, 0, 0, 0.53);
+
+// Text
+$color-text-primary: #000000;
+$color-text-primary-darken-1: darken($color-text-primary, 30%);
+$color-text-primary-darkest: #101820;
+$color-text-primary-darkest-lighten-1: lighten($color-text-primary-darkest, 30%);
+$color-text-white: #FFFFFF;
+$color-text-white-darken-1: darken($color-text-white, 30%);
+$color-text-accent-primary: #fae100;
+$color-link-primary: #36a3f7;
+$color-link-dangerous: #f3545d;
+
+// Borders
+$color-border-primary: #e1e4e6;
+$color-border-white: #ffffff;
+$color-border-white-darken-1: darken($color-border-white, 30%);
+$color-border-black: #000000;
+$color-border-black-lighten-1: lighten($color-border-black, 30%);
+$color-border-accent-primary: #fae100;
+$color-border-focus-primary: #3e93ff;
+
+// Box shadow
+$color-box-shadow-primary: rgba(18,23,39,0.5);
+
+// Buttons
+$color-btn-hover: #fae100;
+$color-btn-primary: #36a3f7;
+$color-btn-danger: #d0021b;
+$color-btn-add: #7ed321;
+$color-btn-bg-primary: $color-primary;
+
+// Input
+$color-input-bg-primary: #FFFFFF;
+
+// Labels
+$color-overlay-text: transparentize($color: #000, $amount: 0.5);
+

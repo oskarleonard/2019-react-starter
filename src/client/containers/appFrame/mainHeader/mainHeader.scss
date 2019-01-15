@@ -1,0 +1,79 @@
+$fixed-header-height: 60px;
+
+.mainHeader {
+  height: $fixed-header-height;
+}
+
+.stickyHeader {
+  background: $color-bg-primary-gradient-dark;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  width: 100%;
+  height: $fixed-header-height;
+  display: flex;
+  align-items: stretch;
+  box-shadow: 0 0 5px $color-box-shadow-primary;
+}
+
+.navBarButtonIcon {
+  width: 72px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #A1A2A3;
+  font-size: 22px;
+}
+
+.navLinkLogo {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainNavDesktopClassName {
+  display: none;
+
+  @include bpTablet() {
+    display: flex;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 89;
+  background-color: $color-overlay;
+
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+  animation-name: animateOpacity;
+}
+
+@keyframes animateOpacity {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+.bowlingCenterSwitchProp {
+
+  @include bpTablet() {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    transition-duration: 0.2s;
+    transition-property: transform;
+    transition-timing-function: ease-out;
+
+    &.isExpanded {
+      transform: translateX(178px);
+    }
+  }
+}

@@ -1,0 +1,92 @@
+.appFrame {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContentBelowHeader {
+  display: flex;
+  background-color: $color-bg-element-base;
+}
+
+.nav {
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+}
+
+.overlaySideBarClose {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 89;
+  background-color: rgba(0, 0, 0, 0.53);
+
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+  animation-name: animateOpacity;
+
+  @include bpTablet() {
+    display: none;
+  }
+}
+
+.leftColumnAnimationSetup {
+  transition-duration: 0.2s;
+  will-change: width;
+  transition-property: width;
+  transition-timing-function: ease-out;
+
+  @include bpTablet() {
+    width: 72px;
+  }
+}
+
+.leftDivPusher {
+  composes: leftColumnAnimationSetup;
+  position: fixed;
+  z-index: 100;
+
+  &.isExpanded {
+    width: 250px;
+  }
+
+  @include bpTablet() {
+    position: initial;
+    z-index: initial;
+  }
+}
+
+.leftAccordion {
+  composes: leftColumnAnimationSetup;
+  width: 0;
+  z-index: 100;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  flex-direction: column;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 0 5px $color-box-shadow-primary;
+
+  @include bpTablet() {
+    display: flex;
+    width: 72px;
+  }
+
+  &.isExpanded {
+    width: 250px;
+  }
+}
+
+.rightAccordion {
+  flex: 1;
+  display: flex;
+  z-index: 1;
+}

@@ -1,0 +1,32 @@
+.boundary {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+
+    .goat {
+        margin-top: 70px;
+        height: 170px;
+        width: 129px;
+    }
+
+    .heading {
+        font-size: 22px;
+        font-weight: 500;
+        margin-top: 35px;
+
+        @include bpTablet() {
+            font-size: 30px;
+        }
+    }
+
+    .subHeader {
+        color: rgba(0, 0, 0, 0.91);
+        font-size: 14px;
+        line-height: 18px;
+        margin-top: 20px;
+
+        @include bpTablet() {
+            font-size: 16px;
+        }
+    }
+}
