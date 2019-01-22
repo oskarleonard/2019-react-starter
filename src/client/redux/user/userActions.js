@@ -59,7 +59,9 @@ export function setAccessToken(accessToken) {
   };
 }
 
-export function resetUserReducer() {
+export function resetUserReducer(cookies) {
+  cookies.remove('accessToken');
+
   return {
     type: RESET_USER_REDUCER,
   };
