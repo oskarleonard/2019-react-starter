@@ -6,6 +6,7 @@ import { flushChunkNames } from 'react-universal-component/server';
 import flushChunks from 'webpack-flush-chunks';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router-dom';
+import { CookiesProvider } from 'react-cookie';
 import LazyLoadContext from '@client/helperComponents/context/LazyLoadContext';
 import asyncReducers from '@client/redux/asyncReducers';
 import configureStore from '../client/redux/configureStore';
@@ -23,11 +24,13 @@ export default ({ clientStats }) => (req, res) => {
   const routerContext = {};
   const ServerApp = () => (
     <LazyLoadContext.Provider value={lazyLoadContextValue}>
-      <Provider store={store} key="provider">
-        <StaticRouter location={req.url} context={routerContext}>
-          <AppFrame />
-        </StaticRouter>
-      </Provider>
+      <CookiesProvider cookies={req.universalCookies}>
+        <Provider store={store} key="provider">
+          <StaticRouter location={req.url} context={routerContext}>
+            <AppFrame />
+          </StaticRouter>
+        </Provider>
+      </CookiesProvider>
     </LazyLoadContext.Provider>
   );
 
