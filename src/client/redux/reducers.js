@@ -5,9 +5,11 @@ import duckHomePage, {
 import duckNotFoundPage, {
   DUCK_NOT_FOUND_KEY,
 } from '@client/pages/notFoundPage/duckNotFoundPage';
+import userReducer, { USER_REDUCER_KEY } from './user';
 
 export default function createRootReducer(injectedReducers = {}, initialState) {
   const reducers = {
+    [USER_REDUCER_KEY]: userReducer,
     [DUCK_NOT_FOUND_KEY]: duckNotFoundPage,
     [DUCK_HOME_PAGE_KEY]: duckHomePage,
     ...injectedReducers,

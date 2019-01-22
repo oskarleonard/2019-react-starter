@@ -1,6 +1,7 @@
 import path from 'path';
 import { matchRoutes } from 'react-router-config';
 import { get500 } from '@server/views/htmlHelpers';
+import { setAccessToken, loadProfile } from '@client/redux/user';
 import routes from '../client/pages/routes';
 
 // The components that we're declaring in pages.js are imported async, so we can't garantee that
@@ -33,7 +34,19 @@ const staticRoutes = routes.map((route) => {
 });
 
 export function preloadRouteData(req, store) {
-  return Promise.all(getRoutePromises(store, req.url));
+  const accessToken = req.universalCookies.get('accessToken');
+
+  if (accessToken) {
+    store.dispatch(setAccessToken(accessToken));
+
+    const authPromises = [store.dispatch(loadProfile())];
+
+    return Promise.all(authPromises).then(() => {
+      return Promise.all(getRoutePromises(store, req.url));
+    });
+  } else {
+    return Promise.all(getRoutePromises(store, req.url));
+  }
 }
 
 function getRoutePromises(store, url) {

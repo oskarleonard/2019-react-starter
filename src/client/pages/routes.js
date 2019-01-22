@@ -15,6 +15,12 @@ export default [
     Component: universal(import('pages/homePage/HomePage'), options),
   },
   {
+    path: '/login',
+    exact: true,
+    componentPath: 'pages/loginPage/LoginPage',
+    Component: universal(import('pages/loginPage/LoginPage'), options),
+  },
+  {
     path: '*',
     componentPath: 'pages/notFoundPage/NotFoundPage',
     Component: universal(import('pages/notFoundPage/NotFoundPage'), options),

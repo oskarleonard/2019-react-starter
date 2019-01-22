@@ -12,19 +12,11 @@ export default function httpRequest(requestConfig = {}) {
       const data =
         responseWithError &&
         responseWithError.response &&
-        responseWithError.response.data
-          ? responseWithError.response.data
-          : responseWithError &&
-            responseWithError.toString &&
-            responseWithError.toString();
+        responseWithError.response.data;
+      const message = responseWithError.statusText || data;
+      const status = responseWithError.status;
 
-      console.log('httpRequest ERROR data: ', data);
-
-      const error = new HttpApiCallError(
-        responseWithError.statusText,
-        responseWithError.status,
-        data
-      );
+      const error = new HttpApiCallError(message, status, data);
       throw error;
     }
   );
