@@ -7,6 +7,12 @@
 2. `npm run buildscript`
 2. `npm run prod`
 
+## Feature Branches
+I will add specific features in other branches and create an PR for them (but it should never be merged) so it is easy to see the new code.
+1. User:
+    1. TAGS: (login, auth cookie, redirect after successful login, cookie banner)
+    2. CODE: https://github.com/oskarleonard/2019-react-starter/pull/1
+
 ## EDITORS
 #### WEBSTORM SETUP
 0. Make sure you have done `npm i`
