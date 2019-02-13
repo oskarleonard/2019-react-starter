@@ -9,23 +9,21 @@ import ErrorBoundary from './errorBoundary/ErrorBoundary';
 import MainHeader from './mainHeader/MainHeader';
 import styles from './appFrame.scss';
 
-const MainRouteSwitch = withRouter(
-  React.memo(() => {
-    function getMainClassName() {
-      return classNames({
-        [styles.main]: true,
-      });
-    }
+const MainRouteSwitch = withRouter(() => {
+  function getMainClassName() {
+    return classNames({
+      [styles.main]: true,
+    });
+  }
 
-    return (
-      <main className={getMainClassName()}>
-        <Switch>
-          {routes.map((route, index) => routeWithSubRoutes(route, index))}
-        </Switch>
-      </main>
-    );
-  })
-);
+  return (
+    <main className={getMainClassName()}>
+      <Switch>
+        {routes.map((route, index) => routeWithSubRoutes(route, index))}
+      </Switch>
+    </main>
+  );
+});
 
 class AppFrame extends PureComponent {
   render() {
