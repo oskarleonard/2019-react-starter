@@ -1,4 +1,5 @@
 import path from 'path';
+import url from 'url';
 import { matchRoutes } from 'react-router-config';
 import { get500 } from '@server/views/htmlHelpers';
 import routes from '../client/pages/routes';
@@ -36,14 +37,17 @@ export function preloadRouteData(req, store) {
   return Promise.all(getRoutePromises(store, req.url));
 }
 
-function getRoutePromises(store, url) {
-  const matchedRoutePromises = matchRoutes(staticRoutes, url);
+function getRoutePromises(store, reqUrl) {
+  const matchedRoutePromises = matchRoutes(staticRoutes, reqUrl);
 
   const routePromises = matchedRoutePromises.reduce(
-    (accumPromises, { route }) => {
+    (accumPromises, { route, match }) => {
       const wrappedContainer = route.staticComponent.WrappedComponent;
       if (wrappedContainer && wrappedContainer.loadData) {
-        accumPromises.push(wrappedContainer.loadData(store.dispatch));
+        const parsedUrl = url.parse(reqUrl);
+        accumPromises.push(
+          wrappedContainer.loadData(store.dispatch, parsedUrl, match.params)
+        );
         return accumPromises;
       }
       return accumPromises;

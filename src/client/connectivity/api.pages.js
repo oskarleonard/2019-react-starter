@@ -3,8 +3,8 @@ import { getBaseRequestConfig } from './baseRequestConfig';
 
 const LOCAL_BASE_PATH =
   process.env.NODE_ENV === 'development'
-    ? `http://localhost:3000/mockApi`
-    : `http://localhost:3000/mockApi`; // `http://localhost:3000/mockApi`
+    ? `http://localhost:3100/mockApi`
+    : `http://localhost:3100/mockApi`; // `http://localhost:3000/mockApi`
 
 export function fetchPageContent(page) {
   const baseRequestConfig = getBaseRequestConfig();

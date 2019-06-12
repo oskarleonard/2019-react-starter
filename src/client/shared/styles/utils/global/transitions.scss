@@ -1,17 +1,3 @@
-.slideDown {
-  transition-duration: 0.2s;
-  transition-property: transform;
-  transition-timing-function: ease-out;
-  transform: translateX(0%);
-}
-
-.transitionToWhiteBackground {
-  transition-duration: 0.4s;
-  transition-property: background-color;
-  transition-timing-function: linear;
-  background-color: white;
-}
-
 @mixin transitionSwipeRight($txtColor: initial) {
   color: $txtColor;
   &:before {

@@ -1,0 +1,127 @@
+@mixin _setDefaultSpacing() {
+  --rightSpacing: 10px;
+  --topSpacing: 10px;
+
+  @include bpTablet() {
+    --rightSpacing: 20px;
+    --topSpacing: 20px;
+  }
+}
+
+@mixin _fluidItem($topSpacing, $rightSpacing, $mob, $mobLand, $tab, $des, $wide) {
+  width: calc(#{$mob} - #{$rightSpacing});
+  margin: $topSpacing $rightSpacing 0 0;
+
+  @include bpMobileLandscape() {
+    width: calc(#{$mobLand} - #{$rightSpacing});
+  }
+
+  @include bpTablet() {
+    width: calc(#{$tab} - #{$rightSpacing});
+  }
+
+  @include bpDesktop() {
+    width: calc(#{$des} - #{$rightSpacing});
+  }
+
+  @include bpWidescreen300() {
+    width: calc(#{$wide} - #{$rightSpacing});
+  }
+}
+
+@mixin _slider($topSpacing) {
+  margin: calc(0px - #{$topSpacing}) 0 0 0;
+  overflow: scroll;
+}
+
+@mixin _grid($topSpacing, $rightSpacing) {
+  flex-wrap: wrap;
+  margin: calc(0px - #{$topSpacing}) calc(0px - #{$rightSpacing}) 0 0;
+}
+
+.displayFlexOne {
+  flex: 1;
+  display: flex;
+}
+
+.alignmentContainer {
+  display: flex;
+  overflow: hidden;
+}
+
+.mobSliderTab234Grid {
+  composes: displayFlexOne;
+  @include _setDefaultSpacing();
+  @include _slider(var(--topSpacing));
+
+  @include bpTablet() {
+    @include _grid(var(--topSpacing), var(--rightSpacing));
+  }
+
+  > * {
+    @include _fluidItem(var(--topSpacing), var(--rightSpacing), 100%, 100%, 50%, 33.3%, 25%);
+  }
+}
+
+.grid11234 {
+  composes: displayFlexOne;
+  @include _setDefaultSpacing();
+  @include _grid(var(--topSpacing), var(--rightSpacing));
+
+  > * {
+    @include _fluidItem(var(--topSpacing), var(--rightSpacing), 100%, 100%, 50%, 33.3%, 25%);
+  }
+}
+
+.grid12345 {
+  composes: displayFlexOne;
+  @include _setDefaultSpacing();
+  @include _grid(var(--topSpacing), var(--rightSpacing));
+
+  > * {
+    @include _fluidItem(var(--topSpacing), var(--rightSpacing), 100%, 50%, 33.3%, 25%, 20%);
+  }
+}
+
+.grid13 {
+  composes: displayFlexOne;
+  @include _setDefaultSpacing();
+  @include _grid(var(--topSpacing), var(--rightSpacing));
+
+  > * {
+    @include _fluidItem(var(--topSpacing), var(--rightSpacing), 100%, 33.3%, 33.3%, 33.3%, 33.3%);
+  }
+}
+
+.grid12 {
+  composes: displayFlexOne;
+  @include _setDefaultSpacing();
+  @include _grid(var(--topSpacing), var(--rightSpacing));
+
+  > * {
+    @include _fluidItem(var(--topSpacing), var(--rightSpacing), 100%, 50%, 50%, 50%, 50%);
+  }
+}
+
+.flexRow {
+  composes: displayFlexOne;
+}
+
+.flexOneSpacing32 {
+  flex: 1;
+  display: flex;
+  margin-left: 32px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.flexCol {
+  composes: displayFlexOne;
+  flex-direction: column;
+}
+
+.alignSelfCenter {
+  align-self: center;
+}

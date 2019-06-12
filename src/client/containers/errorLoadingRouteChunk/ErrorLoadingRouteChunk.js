@@ -1,7 +1,7 @@
 import React from 'react';
 import ErrorLoadingChunkReporter from './errorLoadingChunkReporter/ErrorLoadingChunkReporter';
 
-function ErrorLoadingChunk() {
+function ErrorLoadingRouteChunk() {
   return (
     <div>
       <p>ErrorLoadingChunk</p>
@@ -10,4 +10,4 @@ function ErrorLoadingChunk() {
   );
 }
 
-export default ErrorLoadingChunk;
+export default ErrorLoadingRouteChunk;

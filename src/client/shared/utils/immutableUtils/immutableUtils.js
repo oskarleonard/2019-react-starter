@@ -1,4 +1,4 @@
-import { Iterable } from 'immutable';
+import { Iterable, List } from 'immutable';
 
 function isDebug() {
   return process.env.NODE_ENV === 'development';
@@ -54,4 +54,60 @@ export function getIn(arg0, ...args) {
   }
 
   return currentValue;
+}
+
+// It basically add an item to a list If item exists it updates it with new value,
+// otherwise it just adds the item to the list, ie. The list shall not have any duplicated items.
+export function setToList(list, compareProp, mapToAdd) {
+  const indexToUpdate = list.findIndex((formKey) => {
+    return formKey.get(compareProp) === mapToAdd.get(compareProp);
+  });
+
+  if (indexToUpdate === -1) {
+    // mapToAdd doesn't exists in list
+    return list.push(mapToAdd);
+  } else {
+    // mapToAdd obj exists in list. Update old obj with mapToAdd
+    return list.set(indexToUpdate, mapToAdd);
+  }
+}
+
+export function toJs(imJS) {
+  return imJS && imJS.toJS && imJS.toJS();
+}
+
+export function strListToString(list, deliminator = ' ') {
+  return (
+    list &&
+    list.reduce &&
+    list.reduce((accum, item) => {
+      return accum + deliminator + item;
+    }, '')
+  );
+}
+
+export function objListToString(list, propToStringify, deliminator = ' ') {
+  return (
+    list &&
+    list.reduce &&
+    list.reduce((accum, item) => {
+      return accum + (accum && deliminator) + getIn(item, propToStringify);
+    }, '')
+  );
+}
+
+export function imJsUnion(first, second) {
+  let mergedList = List(first);
+
+  second.forEach((item) => {
+    const alreadyExists = first.findIndex((firstItem) => {
+      return valIn(item, 'id') === valIn(firstItem, 'id');
+    });
+
+    if (alreadyExists === -1) {
+      mergedList = mergedList.push(item);
+    }
+  });
+
+  return mergedList;
 }

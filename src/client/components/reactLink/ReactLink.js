@@ -4,18 +4,25 @@ import PropTypes from 'prop-types';
 
 class ReactLink extends PureComponent {
   render() {
-    const { className, to, state, ...rest } = this.props;
+    const { className, to, ...rest } = this.props;
 
-    return (
-      <ReactRouterLink
-        className={className}
-        to={{
-          pathname: to || '/',
-          state: state,
-        }}
-        {...rest}
-      />
-    );
+    if (to && to.match && to.match(/https*:\/\/\w+.\w+/)) {
+      return (
+        <a
+          className={className}
+          href={to}
+          target={'_blank'}
+          rel="noopener noreferrer"
+          {...rest}
+        />
+      );
+    } else {
+      const toToJs = to && to.toJS ? to.toJS() : to;
+
+      return (
+        <ReactRouterLink className={className} to={toToJs || ''} {...rest} />
+      );
+    }
   }
 }
 

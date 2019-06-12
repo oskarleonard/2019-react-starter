@@ -1,9 +1,9 @@
 import universal from 'react-universal-component';
 import Loader from '@client/components/loader/Loader';
-import ErrorLoadingChunk from '@client/containers/errorLoadingChunk/ErrorLoadingChunk';
+import ErrorLoadingRouteChunk from '@client/containers/errorLoadingRouteChunk/ErrorLoadingRouteChunk';
 
 const options = {
-  error: ErrorLoadingChunk,
+  error: ErrorLoadingRouteChunk,
   loading: Loader,
 };
 
